@@ -25,5 +25,8 @@ func (de *DirectEmitter) RefreshEmitterWithAddress(raddr *net.UDPAddr) {
 }
 
 func segmentPacking(seg *Segment) (batch []string) {
+	for _, p := range packSegments(seg, nil) {
+		batch = append(batch, string(p))
+	}
 	return
 }
